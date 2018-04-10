@@ -1,0 +1,30 @@
+API KEYS
+
+EDAMAM 
+API KEY:
+4db333974b55b002711e64fa525236f8	
+Application ID
+1b48070d
+
+https://api.edamam.com/search
+
+Returns information about a specific recipe based on its ID ie. -r=http://www.edamam.com/ontologies/edamam.owl%23recipe_637913ec61d9da69eb451818c3293df2 This or the q parameter are required
+
+https://api.edamam.com/search?q=chicken&app_id=1b48070d&app_key=4db333974b55b002711e64fa525236f8&from=0&to=3&calories=591-722&health=alcohol-free
+
+Correct URL with key and app id: https://api.edamam.com/search?q=chicken&app_id=1b48070d&app_key=4db333974b55b002711e64fa525236f8&from=0&to=3&calories=591-722&health=alcohol-free
+
+-----------------
+
+GOOGLE SEARCH:
+https://developers.google.com/custom-search/
+https://developers.google.com/custom-search/json-api/v1/reference/cse/list
+GET https://www.googleapis.com/customsearch/v1
+API KEY: AIzaSyAVdl2ABYzir6BSQfJIp7_1Ya4n4KysSGQ
+
+Info on custom search engine ID: https://www.youtube.com/watch?v=vP_inGfKG5E
+
+-----------------
+
+YOUTUBE:
+https://developers.google.com/youtube/iframe_api_reference
