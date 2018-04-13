@@ -41,13 +41,12 @@ $.ajax({
 
 	}
 	
-	var address = '';
+	var streetnumber = '';
 	var city = '';
 	var state = '';
-
+	//https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+4329+dallas+tx&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74	
 	$.ajax({
-		// https://maps.googleapis.com/maps/api/geocode/json?address=4329+amherst+ave,+dallas,+tx&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
-		url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + city + state + '&' + 'key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
+		url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+' + streetnumber + city + state + '&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
 	}).then(function(response) {
 		console.log(response);
 	})
