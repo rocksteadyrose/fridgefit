@@ -1,0 +1,24 @@
+/* colors green rgb(94, 131, 35) 
+          orange rgb(238, 150, 33) */
+/* font-family: 'Montserrat', sans-serif;
+   font-family: 'Raleway', sans-serif; */
+
+.logoImg {
+    width: 175px;
+    height: auto;
+    padding: 10px 0 0 0px;
+}
+
+nav {
+    height: 115px;
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+   }
