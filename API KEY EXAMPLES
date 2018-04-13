@@ -21,10 +21,40 @@ https://developers.google.com/custom-search/
 https://developers.google.com/custom-search/json-api/v1/reference/cse/list
 GET https://www.googleapis.com/customsearch/v1
 API KEY: AIzaSyAVdl2ABYzir6BSQfJIp7_1Ya4n4KysSGQ
+SEARCH ENGINE ID: 001690593725310706381:wfwkrtt23ry
 
 Info on custom search engine ID: https://www.youtube.com/watch?v=vP_inGfKG5E
+
+<script>
+  (function() {
+    var cx = '001690593725310706381:wfwkrtt23ry';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+<html>
+<head>
+<title>my site</title>
+...
+<head>
+<body>
+<div1>...</div1>
+PASTE THE CODE HERE
+<div2>...</div2>
+</body>
+</html>
 
 -----------------
 
 YOUTUBE:
 https://developers.google.com/youtube/iframe_api_reference
+
+------------------
+
+440555472754-bfsv5boqevcftvgtmgb6ptjop0mcg3ie.apps.googleusercontent.com

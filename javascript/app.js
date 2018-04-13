@@ -40,7 +40,15 @@ $.ajax({
 		$('#recipeDisplay').append(recipeDiv);
 
 	}
-			
+	
+	var address = '';
+	var city = '';
+	var state = '';
 
-
+	$.ajax({
+		// https://maps.googleapis.com/maps/api/geocode/json?address=4329+amherst+ave,+dallas,+tx&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
+		url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address + city + state + '&' + 'key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
+	}).then(function(response) {
+		console.log(response);
+	})
 });
