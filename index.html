@@ -9,23 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<!--MAP-->
-		<h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-		</script>
-	<!--MAP-->
 	<nav class="navbar navbar-default">
 	    <div class="container-fluid">
 	    	<div class="navbar-header">
@@ -63,7 +46,6 @@
 					      </div>
 					    </div>
 					  </div>
-<<<<<<< HEAD
 					  <div class="panel panel-default">
 					    <div class="panel-heading" role="tab" id="headingTwo">
 					      <h4 class="panel-title">
@@ -90,7 +72,22 @@
 					      <div class="panel-body">
 					        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 								</div>
-								
+								<h3>My Google Maps Demo</h3>
+							<div id="map">
+							</div>
+							<script>
+								function initMap() {
+									var uluru = {lat: -25.363, lng: 131.044};
+									var map = new google.maps.Map(document.getElementById('map'), {
+										zoom: 4,
+										center: uluru
+									});
+									var marker = new google.maps.Marker({
+										position: uluru,
+										map: map
+									});
+								}
+							</script>
 					    </div>
 					  </div>
 					</div>
@@ -98,10 +95,6 @@
 				<div id="map">
 				</div>
 
-=======
-					</div>
-				</div>
->>>>>>> 26635b4e5c9cf0ae17a18bef1ad49605f4b3bac0
 			</div>
 			<div class="col-md-9">
 				<div id="recipeDisplay" class="panel panel-default col-md-12">	

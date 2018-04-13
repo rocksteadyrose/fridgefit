@@ -28,27 +28,17 @@ $.ajax({
 	var results = response.hits;
 	console.log(results.length);
 	for (i = 0; i < results.length; i++) {
-		var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
-		var calories = (Math.floor(intCalories));
 		var recipeDiv = $('<div>');
 		var recipeImage = $('<img>');
 		var recipeCaption = $('<div>');
-		var recipeBtnDiv = $('<div>');
-		var caloriesP = $('<p>');
 		recipeCaption.addClass('caption');
-		recipeCaption.append($('<h3>').text(results[i].recipe.label));
-		recipeCaption.addClass('text-center');
-		caloriesP.text(calories + ' calories per serving');
-		recipeCaption.append(caloriesP)
-		recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn').text('Go to recipe')).attr('href',results[i].recipe.url).attr('target','_blank'));
-		recipeBtnDiv.append($('<button>').text('Activity').addClass('btn'));
-		recipeCaption.append(recipeBtnDiv);
+		recipeCaption.append($('<h3>').text(results[i].recipe.label))
 		recipeImage.attr('src', results[i].recipe.image);
-		recipeDiv.addClass('thumbnail col-md-4 recipe');
+		recipeDiv.addClass('thumbnail col-md-4 recipe')
 		recipeDiv.append(recipeImage);
 		recipeDiv.append(recipeCaption);
 		$('#recipeDisplay').append(recipeDiv);
-		
+
 	}
 	
 	var streetaddress = "";
@@ -66,7 +56,6 @@ $.ajax({
 		console.log(response);
 		console.log(response.results);
 	})
-<<<<<<< HEAD
 });
 
 function initMap() {
@@ -82,7 +71,3 @@ function initMap() {
 	//Associate the styled map with the MapTypeId and set it to display.
 	map.setMapTypeId('styled_map');
   }
-=======
-
-});
->>>>>>> 26635b4e5c9cf0ae17a18bef1ad49605f4b3bac0
