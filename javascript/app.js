@@ -49,10 +49,25 @@ $.ajax({
 	//ADDRESS EXAMPLE: https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+streetnumber+streetname+ave+city+state&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
 	
 	//https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+zipcode&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
-	
+
 	$.ajax({
 		url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+' + zipcode + '&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
 	}).then(function(response) {
 		console.log(response);
+		console.log(response.results);
 	})
 });
+
+function initMap() {
+
+	// Create a map object, and include the MapTypeId to add
+	// to the map type control.
+	var map = new google.maps.Map(document.getElementById('map'), {
+	  center: {lat: 55.647, lng: 37.581},
+	  zoom: 11,
+	  
+	});
+
+	//Associate the styled map with the MapTypeId and set it to display.
+	map.setMapTypeId('styled_map');
+  }

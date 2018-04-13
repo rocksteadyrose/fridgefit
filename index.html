@@ -6,8 +6,30 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!--MAP-->
+	<style>
+			
+	 </style>
+	<!--MAP-->
 </head>
 <body>
+	<!--MAP-->
+		<h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+		</script>
+	<!--MAP-->
 	<nav class="navbar navbar-default">
 	    <div class="container-fluid">
 	    	<div class="navbar-header">
@@ -70,10 +92,13 @@
 					    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 					      <div class="panel-body">
 					        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					      </div>
+								</div>
+								
 					    </div>
 					  </div>
 					</div>
+				</div>
+				<div id="map">
 				</div>
 
 			</div>
@@ -91,7 +116,11 @@
 		</div>
 	</div>
 	<script src="javascript/app.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74&callback=initMap"
-    async defer></script>
+	<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74&libraries=places"></script> -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74&callback=initMap">
+	</script>
+	<!--Google Places script below-->
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74&callback=initMap"
+    async defer></script> -->
 </body>
 </html>
