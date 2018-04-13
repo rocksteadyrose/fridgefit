@@ -49,9 +49,21 @@ $.ajax({
 		recipeDiv.append(recipeCaption);
 		$('#recipeDisplay').append(recipeDiv);
 		
-
 	}
-			
-
+	
+	var streetaddress = "";
+	var city = "";
+	var state = "";
+	var zipcode = "75225";
+	streetaddress = streetaddress.replace(/\s+/g, '');
+	//ADDRESS EXAMPLE: https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+streetnumber+streetname+ave+city+state&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
+	
+	//https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+zipcode&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
+	
+	$.ajax({
+		url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+' + zipcode + '&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
+	}).then(function(response) {
+		console.log(response);
+	})
 
 });
