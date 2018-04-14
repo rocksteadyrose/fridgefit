@@ -28,13 +28,23 @@ $.ajax({
 	var results = response.hits;
 	console.log(results.length);
 	for (i = 0; i < results.length; i++) {
+		var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
+		var calories = (Math.floor(intCalories));
 		var recipeDiv = $('<div>');
 		var recipeImage = $('<img>');
 		var recipeCaption = $('<div>');
+		var recipeBtnDiv = $('<div>');
+		var caloriesP = $('<p>');
 		recipeCaption.addClass('caption');
-		recipeCaption.append($('<h3>').text(results[i].recipe.label))
+		recipeCaption.append($('<h3>').text(results[i].recipe.label));
+		recipeCaption.addClass('text-center');
+		caloriesP.text(calories + ' calories per serving');
+		recipeCaption.append(caloriesP)
+		recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn').text('Go to recipe')).attr('href',results[i].recipe.url).attr('target','_blank'));
+		recipeBtnDiv.append($('<button>').text('Activity').addClass('btn'));
+		recipeCaption.append(recipeBtnDiv);
 		recipeImage.attr('src', results[i].recipe.image);
-		recipeDiv.addClass('thumbnail col-md-4 recipe')
+		recipeDiv.addClass('thumbnail col-md-4 recipe');
 		recipeDiv.append(recipeImage);
 		recipeDiv.append(recipeCaption);
 		$('#recipeDisplay').append(recipeDiv);
