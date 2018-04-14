@@ -28,13 +28,23 @@ $.ajax({
 	var results = response.hits;
 	console.log(results.length);
 	for (i = 0; i < results.length; i++) {
+		var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
+		var calories = (Math.floor(intCalories));
 		var recipeDiv = $('<div>');
 		var recipeImage = $('<img>');
 		var recipeCaption = $('<div>');
+		var recipeBtnDiv = $('<div>');
+		var caloriesP = $('<p>');
 		recipeCaption.addClass('caption');
-		recipeCaption.append($('<h3>').text(results[i].recipe.label))
+		recipeCaption.append($('<h3>').text(results[i].recipe.label));
+		recipeCaption.addClass('text-center');
+		caloriesP.text(calories + ' calories per serving');
+		recipeCaption.append(caloriesP)
+		recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn').text('Go to recipe')).attr('href',results[i].recipe.url).attr('target','_blank'));
+		recipeBtnDiv.append($('<button>').text('Activity').addClass('btn'));
+		recipeCaption.append(recipeBtnDiv);
 		recipeImage.attr('src', results[i].recipe.image);
-		recipeDiv.addClass('thumbnail col-md-4 recipe')
+		recipeDiv.addClass('thumbnail col-md-4 recipe');
 		recipeDiv.append(recipeImage);
 		recipeDiv.append(recipeCaption);
 		$('#recipeDisplay').append(recipeDiv);
@@ -58,16 +68,44 @@ $.ajax({
 	})
 });
 
-function initMap() {
 
-	// Create a map object, and include the MapTypeId to add
-	// to the map type control.
-	var map = new google.maps.Map(document.getElementById('map'), {
-	  center: {lat: 55.647, lng: 37.581},
-	  zoom: 11,
-	  
+var map;
+var infowindow;
+
+function initMap() {
+	var pyrmont = {lat: -33.867, lng: 151.195};
+
+	map = new google.maps.Map(document.getElementById('map'), {
+	center: pyrmont,
+	zoom: 15
 	});
 
-	//Associate the styled map with the MapTypeId and set it to display.
-	map.setMapTypeId('styled_map');
-  }
+	infowindow = new google.maps.InfoWindow();
+	var service = new google.maps.places.PlacesService(map);
+	service.nearbySearch({
+	location: pyrmont,
+	radius: 500,
+	type: ['store']
+	}, callback);
+}
+
+function callback(results, status) {
+	if (status === google.maps.places.PlacesServiceStatus.OK) {
+	for (var i = 0; i < results.length; i++) {
+		createMarker(results[i]);
+	}
+	}
+}
+
+function createMarker(place) {
+	var placeLoc = place.geometry.location;
+	var marker = new google.maps.Marker({
+	map: map,
+	position: place.geometry.location
+	});
+
+	google.maps.event.addListener(marker, 'click', function() {
+	infowindow.setContent(place.name);
+	infowindow.open(map, this);
+	});
+}
