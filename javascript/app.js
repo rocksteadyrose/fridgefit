@@ -50,7 +50,8 @@ $.ajax({
 		$('#recipeDisplay').append(recipeDiv);
 
 	}
-	
+
+	var restaurantchoice;
 	var streetaddress = "";
 	var city = "";
 	var state = "";
@@ -65,29 +66,28 @@ $.ajax({
 	}).then(function(response) {
 		console.log(response);
 		console.log(response.results);
-	})
-});
-
+		console.log(response.results[0].geometry.location);
+		restaurantchoice = response.results[0].geometry.location;
 
 var map;
 var infowindow;
 
-function initMap() {
-	var pyrmont = {lat: -33.867, lng: 151.195};
+	var dallasGrocery = restaurantchoice;
 
 	map = new google.maps.Map(document.getElementById('map'), {
-	center: pyrmont,
-	zoom: 15
+	center: dallasGrocery,
+	zoom: 20
 	});
 
 	infowindow = new google.maps.InfoWindow();
 	var service = new google.maps.places.PlacesService(map);
 	service.nearbySearch({
-	location: pyrmont,
-	radius: 500,
+	location: dallasGrocery,
+	radius: 2,
 	type: ['store']
 	}, callback);
-}
+})
+});
 
 function callback(results, status) {
 	if (status === google.maps.places.PlacesServiceStatus.OK) {
