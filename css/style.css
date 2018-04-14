@@ -6,7 +6,7 @@
    font-family: "flamenco", Arial, Helvetica, sans-serif;  */
 
 
-   @font-face {
+@font-face {
     font-family: "flamenco";
     src: url("../fonts/Flamenco-Regular.ttf");
     font-weight: normal;
