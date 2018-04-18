@@ -1,4 +1,4 @@
-var ingredients = ['kale',]
+var ingredients = [];
 
 jQuery.ajaxPrefilter(function(options) {
     if (options.crossDomain && jQuery.support.cors) {
@@ -6,68 +6,83 @@ jQuery.ajaxPrefilter(function(options) {
     }
 });
 
-$.ajax({
-	url: 'https://api.edamam.com/search?q=' + ingredients + '&app_id=b8fa8ec0&app_key=2e99e135530eaed01cb9620b24c1f1c0'
-}).then(function(response) {
-	console.log(response);
-	console.log(response.hits);
-	console.log(response.hits[0]);
-	console.log(response.hits[0].recipe);
-	console.log(response.hits[0].recipe.ingredientLines);
-	console.log(response.hits[0].recipe.digest);
-	console.log(response.hits[0].recipe.calories);
-	console.log(response.hits[0].recipe.yield)
-	console.log((response.hits[0].recipe.calories)/(response.hits[0].recipe.yield))
-	var intCalories = (response.hits[0].recipe.calories)/(response.hits[0].recipe.yield);
-	var calories = (Math.floor(intCalories));
-	console.log(calories);
-	console.log(response.hits[0].recipe.totalNutrients);
-	console.log(response.hits[0].recipe.totalNutrients.FAT);
-	console.log(response.hits[0].recipe.label);
-	
-	var results = response.hits;
-	console.log(results.length);
-	for (i = 0; i < 5; i++) {
-		var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
-		var calories = (Math.floor(intCalories));
-		console.log(calories);
-		var recipeDiv = $('<div>');
-		var recipeImage = $('<img>');
-		var recipeCaption = $('<div>');
-		var recipeBtnDiv = $('<div>');
-		var caloriesP = $('<p>');
-		recipeCaption.addClass('caption');
-		recipeCaption.append($('<h3>').text(results[i].recipe.label));
-		recipeCaption.addClass('text-center');
-		caloriesP.text(calories + ' calories per serving');
-		recipeCaption.append(caloriesP)
-		recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn').text('Go to recipe')).attr('href',results[i].recipe.url).attr('target','_blank'));
-		recipeBtnDiv.append($('<button>').text('Activity').addClass('btn'));
-		recipeCaption.append(recipeBtnDiv);
-		recipeImage.attr('src', results[i].recipe.image);
-		recipeDiv.addClass('thumbnail col-md-4 recipe');
-		recipeDiv.append(recipeImage);
-		recipeDiv.append(recipeCaption);
-		$('#recipeDisplay').append(recipeDiv);
 
-		if (calories < 50) {
-			console.log("This recipe IS FRIDGEfit! Burn it off by walking to the kitchen and getting some ice cream.")
-		} else if (calories >= 50 && calories <= 100) {
-			console.log("Way to be healthy! Burn off those 'lil calories with some thumb exercises as you text your friends about how healthy you are!")
-		} else if (calories > 100 && calories < 300) {
-			console.log("You know how to burn off all those calories? Clean your fridge inside and out! Besides, you never know what ingredients you may find for your next recipe!")
-		} else if (calories >= 300 && calories < 500) {
-			console.log("O M FRIDGEFit G! You are so healthy! Jump up and down to celebrate and then you'll have burned off those calories in no time!")
-		} else if (calories >= 500 && calories < 750) {
-			console.log("Now would be a really good time to take your dog on a walk to burn off those calories. Oh, don't have one? Yeah, just take yourself on a walk...")
-		} else if (calories >= 750 && calories < 1000) {
-			console.log("LOL your fridge is slighttttly judging you right now...")
-		} else if (calories >= 1000 && calories < 2000) {
-			console.log("Okay, you should totally take a walking trip to the farthest grocery store to burn off all those calories...")
-		} else if (calories >= 2000) {
-			console.log("Looking for a way to burn off those calories? We know there's a mountain by the name of Everest that could use some climbing...")
-		}
-	}})
+function displayRecipes() {
+	$.ajax({
+		url: 'https://api.edamam.com/search?q=' + ingredients + '&app_id=b8fa8ec0&app_key=2e99e135530eaed01cb9620b24c1f1c0'
+	}).then(function(response) {
+		
+		var intCalories = (response.hits[0].recipe.calories)/(response.hits[0].recipe.yield);
+		var calories = (Math.floor(intCalories));
+		var results = response.hits;
+
+		for (i = 0; i < results.length; i++) {
+			var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
+			var calories = (Math.floor(intCalories));
+			console.log(calories);
+			var recipeDiv = $('<div>');
+			var recipeImage = $('<img>');
+			var recipeCaption = $('<div>');
+			var recipeBtnDiv = $('<div>');
+			var caloriesP = $('<p>');
+			recipeCaption.addClass('caption');
+			recipeCaption.append($('<h3>').text(results[i].recipe.label));
+			recipeCaption.addClass('text-center');
+			caloriesP.text(calories + ' calories per serving');
+			recipeCaption.append(caloriesP)
+			recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn').text('Go to recipe')).attr('href',results[i].recipe.url).attr('target','_blank'));
+			recipeBtnDiv.append($('<button>').text('Activity').addClass('btn'));
+			recipeCaption.append(recipeBtnDiv);
+			recipeImage.attr('src', results[i].recipe.image);
+			recipeDiv.addClass('thumbnail col-md-4 recipe');
+			recipeDiv.append(recipeImage);
+			recipeDiv.append(recipeCaption);
+			$('#recipeDisplay').prepend(recipeDiv);
+
+			if (calories < 50) {
+				console.log("This recipe IS FRIDGEfit! Burn it off by walking to the kitchen and getting some ice cream.")
+			} else if (calories >= 50 && calories <= 100) {
+				console.log("Way to be healthy! Burn off those 'lil calories with some thumb exercises as you text your friends about how healthy you are!")
+			} else if (calories > 100 && calories < 300) {
+				console.log("You know how to burn off all those calories? Clean your fridge inside and out! Besides, you never know what ingredients you may find for your next recipe!")
+			} else if (calories >= 300 && calories < 500) {
+				console.log("O M FRIDGEFit G! You are so healthy! Jump up and down to celebrate and then you'll have burned off those calories in no time!")
+			} else if (calories >= 500 && calories < 750) {
+				console.log("Now would be a really good time to take your dog on a walk to burn off those calories. Oh, don't have one? Yeah, just take yourself on a walk...")
+			} else if (calories >= 750 && calories < 1000) {
+				console.log("LOL your fridge is slighttttly judging you right now...")
+			} else if (calories >= 1000 && calories < 2000) {
+				console.log("Okay, you should totally take a walking trip to the farthest grocery store to burn off all those calories...")
+			} else if (calories >= 2000) {
+				console.log("Looking for a way to burn off those calories? We know there's a mountain by the name of Everest that could use some climbing...")
+			};
+		};
+		$('#numIngredients').html(ingredients.length);
+			for (var j = 0; j < ingredients.length; j++) {
+			var ingredientDiv = $('<div>').text(ingredients[j]);
+			var ingredientClose = $('<button>').text('x').addClass('ingredientListBtn').attr('name', ingredients[j]);
+			ingredientDiv.append(ingredientClose);
+			$('#ingredients-list').prepend(ingredientDiv);
+		};
+	});
+};
+
+$('#ingredientsSearchBtn').on('click', function(event){
+	event.preventDefault();
+	var ingredient = $('#ingredientsSearchBar').val().trim();
+	var ingredientStr = String(ingredient);
+
+	ingredients.push(ingredient);
+	$('#ingredientsSearchBar').val('');
+	$('#ingredients-list').empty();
+	displayRecipes();
+	console.log(ingredients);
+});
+
+$(document).on('click', '.ingredientListBtn', function() {
+	$($(this).parent()).remove();
+
+});
 
 		var streetAddress = "";
 		var city = "";
