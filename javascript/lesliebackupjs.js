@@ -24,12 +24,13 @@ $.ajax({
 	console.log(response.hits[0].recipe.totalNutrients);
 	console.log(response.hits[0].recipe.totalNutrients.FAT);
 	console.log(response.hits[0].recipe.label);
-
+	
 	var results = response.hits;
 	console.log(results.length);
-	for (i = 0; i < results.length; i++) {
+	for (i = 0; i < 5; i++) {
 		var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
 		var calories = (Math.floor(intCalories));
+		console.log(calories);
 		var recipeDiv = $('<div>');
 		var recipeImage = $('<img>');
 		var recipeCaption = $('<div>');
@@ -48,49 +49,176 @@ $.ajax({
 		recipeDiv.append(recipeImage);
 		recipeDiv.append(recipeCaption);
 		$('#recipeDisplay').append(recipeDiv);
+
+		if (calories < 50) {
+			console.log("This recipe IS FRIDGEfit! Burn it off by walking to the kitchen and getting some ice cream.")
+		} else if (calories >= 50 && calories <= 100) {
+			console.log("Way to be healthy! Burn off those 'lil calories with some thumb exercises as you text your friends about how healthy you are!")
+		} else if (calories > 100 && calories < 300) {
+			console.log("You know how to burn off all those calories? Clean your fridge inside and out! Besides, you never know what ingredients you may find for your next recipe!")
+		} else if (calories >= 300 && calories < 500) {
+			console.log("O M FRIDGEFit G! You are so healthy! Jump up and down to celebrate and then you'll have burned off those calories in no time!")
+		} else if (calories >= 500 && calories < 750) {
+			console.log("Now would be a really good time to take your dog on a walk to burn off those calories. Oh, don't have one? Yeah, just take yourself on a walk...")
+		} else if (calories >= 750 && calories < 1000) {
+			console.log("LOL your fridge is slighttttly judging you right now...")
+		} else if (calories >= 1000 && calories < 2000) {
+			console.log("Okay, you should totally take a walking trip to the farthest grocery store to burn off all those calories...")
+		} else if (calories >= 2000) {
+			console.log("Looking for a way to burn off those calories? We know there's a mountain by the name of Everest that could use some climbing...")
+		}
 	}})
 
-	var streetAddress = "";
-	var city = "";
-	var state = "";
-	var groceryChoice;
+		var streetAddress = "";
+		var city = "";
+		var state = "";
+		var groceryChoice;
+		var groceryStoresArray = [];
+		var centerArray = [];
+		var positionArray = [];
+		var groceryNameArray = [];
+		var groceryInfoObject = {name:[], address:[], ID:[]};
+		var addressEdit = [];
+		var infoArray = [];
+		var infoURL;
+		var chosenGroceryName;
 
-	$("#map").hide();
+		$("#map").hide();
 
-	streetAddress = streetAddress.replace(/\s+/g, '');
-	//ADDRESS EXAMPLE: https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+streetnumber+streetname+ave+city+state&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
-	//https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+zipcode&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74
-
-$(".zipbutton").on( "click", function() {
-	zipCode = $(".zipinput").val().trim();
-	$("#map").show();
+	$(".zipbutton").on( "click", function() {
+		zipCode = $(".zipinput").val().trim();
+		$("#map").show();
+		groceryStoresArray = [];
+		centerArray = [];
+		positionArray = [];
+		groceryInfoObject = {name:[], address:[], url:[]};
+		event.preventDefault();
+		
+		// $(".zipinput").keyup(function(event) {
+		// 	if (event.keyCode == 13) {
+		// 	  $(".zipbutton").click();
+		// 	}
+		//   });
 
 $.ajax({
 	url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+' + zipCode + '&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
 }).then(function(response) {
-	console.log(response);
-	console.log(response.results);
-	console.log(response.results[0].geometry.location);
-	groceryChoice = response.results[0].geometry.location;
+
+	for (i = 0; i < 9; i++){
+		var groceryChoice = response.results[i].geometry.location;
+		var groceryName = response.results[i].name;
+		groceryInfoObject.name.push(groceryName);
+		var groceryAddress = response.results[i].formatted_address;
+		groceryInfoObject.address.push(groceryAddress);
+		addressEdit = groceryAddress.split(/[ ,]+/).join("+");
+		groceryInfoURL(addressEdit);
+		groceryInfoObject.url.push(infoURL);
+		var groceryString = JSON.stringify(groceryChoice);
+		var groceryStores = groceryString.replace(/"/g,'').replace(/lat/g, '').replace(':', '').replace(/lng/g, ' ').replace(/""/g, '').replace(/:/g, '').replace(/{/g, '').replace(/}/g, '');
+		groceryStoresArray.push(groceryStores)
+		var commaPos = groceryStores.indexOf(',');
+		var coordinatesLat = parseFloat(groceryStoresArray[i].substring(0, commaPos));
+		var coordinatesLong = parseFloat(groceryStoresArray[i].substring(commaPos + 1, groceryStoresArray[i].length));
+		var centerPoint = new google.maps.LatLng(coordinatesLat, coordinatesLong);
+		var position = new google.maps.LatLng(coordinatesLat, coordinatesLong);
+		centerArray.push(centerPoint);
+		positionArray.push(position);
+		initMap(positionArray, groceryInfoObject)}
+	})})
+
+	function groceryInfoURL(address) {
+		infoURL = "https://www.google.com/maps/dir/?api=1&destination=" + address + "&travelmode=walking";
+	}
+
+	function initMap(){
+	var map;
+	var infowindow;
+
+	var map = new google.maps.Map(document.getElementById("map"), {
+	zoom: 13,
+	center: positionArray[0],
+	mapTypeId: google.maps.MapTypeId.ROADMAP
+	});
+	var infowindow = new google.maps.InfoWindow({});
+
+	var marker, i;
+
+	for (i = 0; i < 9; i++) {
+
+		marker = new google.maps.Marker({
+			position: positionArray[i],
+			map: map
+	});
+
+	function locate(){
+		if ("geolocation" in navigator){
+			navigator.geolocation.getCurrentPosition(function(position){ 
+				var currentLatitude = position.coords.latitude;
+				var currentLongitude = position.coords.longitude;
+				var infoWindowHTML = "Latitude: " + currentLatitude + "<br>Longitude: " + currentLongitude;
+				var infoWindow = new google.maps.InfoWindow({map: map, content: infoWindowHTML});
+				var currentLocation = { lat: currentLatitude, lng: currentLongitude };
+				infoWindow.setPosition(currentLocation);
+			});}}
+
+
+	google.maps.event.addListener(marker, 'click', (function (marker, i) {
+			return function () {
 	
-var map;
-var infowindow;
+		chosenGroceryName = groceryInfoObject.name[i];
+		infowindow.setContent('<div id="groceryinfo"><strong>' + groceryInfoObject.name[i] + '</strong><br>' +
+		groceryInfoObject.address[i] + '<br>' + '<a href=' +  groceryInfoObject.url[i] + ' target="_blank">' + "Burn off that meal" + "</a>" + '<br></div>')
 
-var groceryStore = groceryChoice;
-console.log(groceryStore);
-var mapOptions = {
-  zoom: 20,
-  center: groceryStore
-}
-var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+		infowindow.open(map, marker);
+	
+		var origin1 = positionArray[i];
+		var destinationA = groceryInfoObject.address[i];
+		console.log(destinationA);
+		var service = new google.maps.DistanceMatrixService;
+		service.getDistanceMatrix({
+		origins: [origin1],
+		destinations: [destinationA],
+		travelMode: 'WALKING',
+		unitSystem: google.maps.UnitSystem.METRIC,
+		avoidHighways: true,
+		}, function(response, status) {
+		if (status !== 'OK') {
+			alert('Error was: ' + status);
+		} else {
+			var originList = response.originAddresses;
+			console.log(response);
+			var destinationList = response.destinationAddresses;
+			var outputDiv = document.getElementById('output');
+			outputDiv.innerHTML = '';
 
-var marker = new google.maps.Marker({
-    position: groceryStore
-});
+			var showGeocodedAddressOnMap = function(asDestination) {
+			var icon = asDestination ? destinationIcon : originIcon;
+			return function(results, status) {
+				if (status === 'OK') {
+				map.fitBounds(bounds.extend(results[0].geometry.location));
+				markersArray.push(new google.maps.Marker({
+					map: map,
+					position: results[0].geometry.location,
+					icon: icon
+				}));
+				} else {
+				alert('Geocode was not successful due to: ' + status);
+				}
+			};
+			};
 
-// To add the marker to the map, call setMap();
-marker.setMap(map);
+			for (var i = 0; i < originList.length; i++) {
+			var results = response.rows[i].elements;
+			for (var j = 0; j < results.length; j++) {
+				outputDiv.innerHTML += outputDiv.innerHTML += 'Pick up all your ingredients at ' + chosenGroceryName + `! If you walk, you can burn off this delish meal since it will take you about ` + results[j].distance.text + `, or ` + results[j].duration.text + `, to get there! GET MOVIN'!`;
+			}}}});
 
-});
-})
+	
+	}
+	}
+	)(marker, i));
+		
+	}
+	}
+
 
