@@ -40,6 +40,10 @@ p {
     box-shadow: 0px -5px rgb(94, 131, 35);
 }
 
+#howto {
+    margin-left: 25px;
+}
+
 .bottomPicCont {
     height: 65px;
     width: 100%;
@@ -101,7 +105,7 @@ h5 {
     font-size: 10pt;
     letter-spacing: 1px;
     float: right;
-    padding: 0 30px 0 0;
+    padding: 0 12px 0 0;
     color: #696767;
 }
 
