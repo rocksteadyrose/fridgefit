@@ -94,7 +94,7 @@ p {
     color: #696767; 
 }
 
-h3 {
+h1, h3 {
     font-family: "flamenco", Arial, Helvetica, sans-serif; 
     color: rgb(94, 131, 35);
 }
@@ -143,10 +143,16 @@ h5 {
 .btn, .btn-primary {
    background-color: rgb(94, 131, 35);
    font-size: 9pt;
+   color: #DCE7D8;
+   font-weight: bold;
 }
 
 .btn:hover, .btn-primary:hover .btn-sm:hover {
     background-color: rgb(238, 150, 33);
+}
+
+.btn:focus, .btn-primary:focus, .btn-sm:focus {
+    background-color: #DCE7D8;
 }
 
 .btnSpace {
@@ -158,6 +164,59 @@ h5 {
     width: 100%;
 }
 
-/* .recipe {
-    margin: 0 5px 0 5px;
-} */
+.currentIngredient {
+    font-size: 24px;
+    color: rgb(94, 131, 35);
+    font-family: "flamenco", Arial, Helvetica, sans-serif;
+}
+
+ .recipe {
+    height: 425px;
+} 
+
+.recipeName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 30px;
+    font-family: "flamenco", Arial, Helvetica, sans-serif; 
+    color: rgb(94, 131, 35);
+    font-size: 24px;
+}
+
+.recipeBtn {
+    margin-right: 3px;
+}
+
+#ingredientsSearchBtn {
+    margin-top: 5px;
+}
+
+.zipbutton {
+    margin-top: 5px;
+}
+
+.ingredientListBtn {
+    margin-left: 5px;
+    background-color: rgb(94, 131, 35);
+    color: #DCE7D8;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+}
+
+.modalStyle {
+    height: 245px;
+}
+
+.modal {
+    height: 300px;
+}
+
+.modalHeader {
+    margin-bottom: 15px;
+}
+
+.modalBody {
+    font-size: 25px;
+}
+
