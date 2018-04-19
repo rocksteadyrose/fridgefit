@@ -22,6 +22,26 @@ p {
     font-family: 'Raleway', sans-serif;  
 }
 
+input[type=search]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid rgb(238, 150, 33);
+    box-shadow: 0 1px 0 0 rgb(238, 150, 33);
+}
+
+input[type=number]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid rgb(238, 150, 33);
+    box-shadow: 0 1px 0 0 rgb(238, 150, 33);
+}
+
+.panel-title {
+    color: #696767;
+}
+
+#enterZipSpan {
+    color: #696767;
+    font-family: 'Raleway', sans-serif; 
+
+}
+
 .tmSymbol {
     font-family: 'Arial', sans-serif;
     font-size: 10pt;
@@ -202,6 +222,7 @@ h5 {
     height: 30px;
     border-radius: 5px;
     border-style: none;
+    margin-bottom: 5px;
 }
 
 .modalStyle {
@@ -218,5 +239,10 @@ h5 {
 
 .modalBody {
     font-size: 25px;
+}
+
+#output {
+    font-family: 'Raleway', sans-serif;
+    color: #696767;
 }
 
