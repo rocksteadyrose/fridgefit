@@ -20,6 +20,8 @@ function displayRecipes() {
 		var calories = (Math.floor(intCalories));
 		var results = response.hits;
 
+		$('#recipeDisplay').html('');
+
 		for (i = 0; i < results.length; i++) {
 			var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
 			var calories = (Math.floor(intCalories));
@@ -99,6 +101,8 @@ $(document).on('click', '.ingredientListBtn', function() {
 	displayRecipes();
 	} else {
 		$('#numIngredients').html('0');
+		var recipeBckGound = $('<img>').attr('src', 'images/MainPic.jpg').addClass('recipeDisplayBckGround img-responsive');
+		$('#recipeDisplay').append(recipeBckGound);
 	};
 });
 
