@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Official title goes here</title>
+	<title>FRIDGEfit</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -34,11 +34,26 @@
 				<div class="panel panel-default">
 				<div class="col-md-6">	
 					<h3>How to use FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span></h3>
-					<h4>Use the ingredient search bar to search for recipes. FRIDGEfit will return recipes and the calories per serving. Click to 'Go to recipe' button to see the full recipe, or click the activity button to find out how much activiy you will have to do to burn off those calories. You can also use the zip code search bar to find nearby grocery stores to find additional ingredients. </h4>
+					<ul>
+						<h4>
+							<li>
+							- Simply input UNEXPIRED ingredients you have in the fridge, or around the house into the search bar below
+							</li>
+							<li>
+							- Learn more about any particular recipe by clicking GO TO RECIPE
+							</li>
+							<li>
+							- Discover how to get FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> by clicking the ACTIVITY button next to any recipe
+							</li>
+							<li>
+							- Type in your ZIP code on our interactive FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> activity map to find additional ingredients at a store near you.
+							</li>
+						</h4>
+						</ul>
 				</div>
 				<div class="col-md-6">
 						<h3>About FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span></h3>
-					<h4>FRIDGEfit suggests recipes from a list of ingredients you have, filters the results by food allergies, gluten-free, and low calorie, and delivers several recipe options. Then, depending on the recipe you select, FRIDGE-FIT delivers your health and fitness options to burn off the calories you consumed.</h4>
+					<h4>Suggests recipes from a list of ingredients in your fridge, filters the results by food allergies, gluten-free, and low calorie, and delivers recipe options depending on the ingredients you have available. When you select a recipe, FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> presents you with health and fitness options to burn off the calories you consumed. Plus, if you need to take a quick trip to the grocery store to pick up an extra ingredient—or if you just want to burn off some calories early—use our interactive FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> activity map to find these ingredients in a grocery store near you.</h4>
 					</div>
 				</div>
 			<!-- </div> -->
@@ -85,7 +100,7 @@
 								<br>
 								<div class="panel panel-default">
 									<div class="panel-heading">
-									<span>Enter your zip code to find this recipe in a grocery store near you</span>
+									<span id="enterZipSpan">Enter your ZIP code to find any extra ingredients in a grocery store near you</span>
 								</div>
 								<div class="panel-body">
 									<div class="form-group">
@@ -195,7 +210,7 @@
 	
 
 	<script src="javascript/app.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUlmVnnBzy1bSOLC3-fbhrhty_xFQSBA0&callback=initMap"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUlmVnnBzy1bSOLC3-fbhrhty_xFQSBA0&libraries=places&callback=initMap" async defer></script>
 	</script>
 </body>
 </html>

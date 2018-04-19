@@ -64,7 +64,7 @@ function displayRecipes() {
 		$('#numIngredients').html(ingredients.length);
 		for (var j = 0; j < ingredients.length; j++) {
 			var ingredientDiv = $('<div>').text(ingredients[j]).addClass('currentIngredient');
-			var ingredientClose = $('<button>').text('x').addClass('ingredientListBtn').attr('name', ingredients[j]);
+			var ingredientClose = $('<button>').text('X').addClass('ingredientListBtn btn').attr('name', ingredients[j]);
 			ingredientDiv.append(ingredientClose);
 			$('#ingredients-list').prepend(ingredientDiv);
 		};
@@ -200,7 +200,7 @@ $.ajax({
 	
 		chosenGroceryName = groceryInfoObject.name[i];
 		infowindow.setContent('<div id="groceryinfo"><strong>' + groceryInfoObject.name[i] + '</strong><br>' +
-		groceryInfoObject.address[i] + '<br>' + '<a href=' +  groceryInfoObject.url[i] + ' target="_blank">' + "Burn off that meal" + "</a>" + '<br></div>')
+		groceryInfoObject.address[i] + '<br>' + '<a href=' +  groceryInfoObject.url[i] + ' target="_blank">' + "Click to burn off this meal from your location" + "</a>" + '<br></div>')
 
 		infowindow.open(map, marker);
 	
@@ -212,7 +212,7 @@ $.ajax({
 		origins: [origin1],
 		destinations: [destinationA],
 		travelMode: 'WALKING',
-		unitSystem: google.maps.UnitSystem.METRIC,
+		unitSystem: google.maps.UnitSystem.IMPERIAL,
 		avoidHighways: true,
 		}, function(response, status) {
 		if (status !== 'OK') {
@@ -243,7 +243,7 @@ $.ajax({
 			for (var i = 0; i < originList.length; i++) {
 			var results = response.rows[i].elements;
 			for (var j = 0; j < results.length; j++) {
-				outputDiv.innerHTML += outputDiv.innerHTML += 'Pick up all your ingredients at ' + chosenGroceryName + `! If you walk, you can burn off this delish meal since it will take you about ` + results[j].distance.text + `, or ` + results[j].duration.text + `, to get there! GET MOVIN'!`;
+				outputDiv.innerHTML += outputDiv.innerHTML += `Take a nice brisk walk to ` + `<strong>` + chosenGroceryName + `</strong>` +  ` to pick up any remaining ingredients ANNNND burn off some calories! It'll only take you ` + results[j].distance.text + `, or ` + results[j].duration.text + `, to get there from ZIP code ` + zipCode + `. GET MOVIN'!`;
 			}}}});
 
 	
