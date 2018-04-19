@@ -6,6 +6,10 @@ jQuery.ajaxPrefilter(function(options) {
     }
 });
 
+$(document).ready(function(){
+    $('.modal').modal();
+  });
+
 
 function displayRecipes() {
 	$.ajax({
@@ -19,19 +23,19 @@ function displayRecipes() {
 		for (i = 0; i < results.length; i++) {
 			var intCalories = (results[i].recipe.calories)/(results[i].recipe.yield);
 			var calories = (Math.floor(intCalories));
-			console.log(calories);
 			var recipeDiv = $('<div>');
 			var recipeImage = $('<img>');
 			var recipeCaption = $('<div>');
 			var recipeBtnDiv = $('<div>');
 			var caloriesP = $('<p>');
 			recipeCaption.addClass('caption');
-			recipeCaption.append($('<h3>').text(results[i].recipe.label));
+			recipeCaption.append($('<div>').text(results[i].recipe.label).addClass('recipeName'));
 			recipeCaption.addClass('text-center');
 			caloriesP.text(calories + ' calories per serving');
 			recipeCaption.append(caloriesP)
-			recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn btn-primary').text('Go to recipe')).attr('href',results[i].recipe.url).attr('target','_blank'));
-			recipeBtnDiv.append($('<button>').text('Activity').addClass('btn btn-primary recipeButton'));
+			recipeBtnDiv.append($('<a>').append($('<button>').addClass('btn recipeBtn').text('Go to recipe')).attr('href',results[i].recipe.url).attr('target','_blank'));
+			var activityBtn = $('<button>').text('Activity').addClass('btn');
+			recipeBtnDiv.append(activityBtn);
 			recipeCaption.append(recipeBtnDiv);
 			recipeImage.attr('src', results[i].recipe.image);
 			recipeDiv.addClass('thumbnail col-md-4 recipe');
@@ -40,26 +44,26 @@ function displayRecipes() {
 			$('#recipeDisplay').prepend(recipeDiv);
 
 			if (calories < 50) {
-				console.log("This recipe IS FRIDGEfit! Burn it off by walking to the kitchen and getting some ice cream.")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal1');
 			} else if (calories >= 50 && calories <= 100) {
-				console.log("Way to be healthy! Burn off those 'lil calories with some thumb exercises as you text your friends about how healthy you are!")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal2');
 			} else if (calories > 100 && calories < 300) {
-				console.log("You know how to burn off all those calories? Clean your fridge inside and out! Besides, you never know what ingredients you may find for your next recipe!")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal3');
 			} else if (calories >= 300 && calories < 500) {
-				console.log("O M FRIDGEFit G! You are so healthy! Jump up and down to celebrate and then you'll have burned off those calories in no time!")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal4');
 			} else if (calories >= 500 && calories < 750) {
-				console.log("Now would be a really good time to take your dog on a walk to burn off those calories. Oh, don't have one? Yeah, just take yourself on a walk...")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal5');
 			} else if (calories >= 750 && calories < 1000) {
-				console.log("LOL your fridge is slighttttly judging you right now...")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal6');
 			} else if (calories >= 1000 && calories < 2000) {
-				console.log("Okay, you should totally take a walking trip to the farthest grocery store to burn off all those calories...")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal7');
 			} else if (calories >= 2000) {
-				console.log("Looking for a way to burn off those calories? We know there's a mountain by the name of Everest that could use some climbing...")
+				activityBtn.addClass('modal-trigger').attr('href', '#modal8');
 			};
 		};
 		$('#numIngredients').html(ingredients.length);
-			for (var j = 0; j < ingredients.length; j++) {
-			var ingredientDiv = $('<div>').text(ingredients[j]);
+		for (var j = 0; j < ingredients.length; j++) {
+			var ingredientDiv = $('<div>').text(ingredients[j]).addClass('currentIngredient');
 			var ingredientClose = $('<button>').text('x').addClass('ingredientListBtn').attr('name', ingredients[j]);
 			ingredientDiv.append(ingredientClose);
 			$('#ingredients-list').prepend(ingredientDiv);
@@ -80,8 +84,22 @@ $('#ingredientsSearchBtn').on('click', function(event){
 });
 
 $(document).on('click', '.ingredientListBtn', function() {
-	$($(this).parent()).remove();
+	var search_term = this.name;
 
+	for (var i=ingredients.length-1; i>=0; i--) {
+    	if (ingredients[i] === search_term) {
+        ingredients.splice(i, 1);
+         break;      
+    	};
+	};
+	console.log(ingredients)
+	$('#ingredients-list').empty();
+	$('#recipeDisplay').empty();
+	if (ingredients.length >= 1) {
+	displayRecipes();
+	} else {
+		$('#numIngredients').html('0');
+	};
 });
 
 		var streetAddress = "";
@@ -100,7 +118,7 @@ $(document).on('click', '.ingredientListBtn', function() {
 
 		$("#map").hide();
 
-	$(".zipbutton").on( "click", function(event) {
+	$(".zipbutton").on( "click", function() {
 		zipCode = $(".zipinput").val().trim();
 		$("#map").show();
 		groceryStoresArray = [];
@@ -109,11 +127,11 @@ $(document).on('click', '.ingredientListBtn', function() {
 		groceryInfoObject = {name:[], address:[], url:[]};
 		event.preventDefault();
 		
-		$(".zipinput").keyup(function(event) {
-			if (event.keyCode == 13) {
-			  $(".zipbutton").click();
-			}
-		  });
+		// $(".zipinput").keyup(function(event) {
+		// 	if (event.keyCode == 13) {
+		// 	  $(".zipbutton").click();
+		// 	}
+		//   });
 
 $.ajax({
 	url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+' + zipCode + '&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
@@ -182,7 +200,7 @@ $.ajax({
 	
 		chosenGroceryName = groceryInfoObject.name[i];
 		infowindow.setContent('<div id="groceryinfo"><strong>' + groceryInfoObject.name[i] + '</strong><br>' +
-		groceryInfoObject.address[i] + '<br>' + '<a href=' +  groceryInfoObject.url[i] + ' target="_blank">' + "Click to burn off this meal from your location" + "</a>" + '<br></div>')
+		groceryInfoObject.address[i] + '<br>' + '<a href=' +  groceryInfoObject.url[i] + ' target="_blank">' + "Burn off that meal" + "</a>" + '<br></div>')
 
 		infowindow.open(map, marker);
 	
@@ -194,7 +212,7 @@ $.ajax({
 		origins: [origin1],
 		destinations: [destinationA],
 		travelMode: 'WALKING',
-		unitSystem: google.maps.UnitSystem.IMPERIAL,
+		unitSystem: google.maps.UnitSystem.METRIC,
 		avoidHighways: true,
 		}, function(response, status) {
 		if (status !== 'OK') {
@@ -225,7 +243,8 @@ $.ajax({
 			for (var i = 0; i < originList.length; i++) {
 			var results = response.rows[i].elements;
 			for (var j = 0; j < results.length; j++) {
-				outputDiv.innerHTML += outputDiv.innerHTML += `Take a nice brisk walk to ` + `<strong>` + chosenGroceryName + `</strong>` +  ` to pick up any remaining ingredients ANNNND burn off some calories! It'll only take you ` + results[j].distance.text + `, or ` + results[j].duration.text + `, to get there from ZIP code ` + zipCode + `. GET MOVIN'!`;}}}});
+				outputDiv.innerHTML += outputDiv.innerHTML += 'Pick up all your ingredients at ' + chosenGroceryName + `! If you walk, you can burn off this delish meal since it will take you about ` + results[j].distance.text + `, or ` + results[j].duration.text + `, to get there! GET MOVIN'!`;
+			}}}});
 
 	
 	}
@@ -234,3 +253,5 @@ $.ajax({
 		
 	}
 	}
+
+
