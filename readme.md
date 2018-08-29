@@ -4,7 +4,7 @@ View the completed app <a href="http://bit.ly/fridgefitrose">here</a>.
 
 Wondering what to do with all of those ingredients just sitting around in your fridge? Meet FRIDGEfit!
 
-FRIDGEfit suggests recipes from a list of ingredients you have, filters the results by food allergies, gluten-free, and low calorie, and delivers several recipe options (video, blogs, photos, further information) depending on the ingredient you have available. Then, depending on the recipe you select, FRIDGEfit delivers your health and fitness options to burn off the calories you consumed.
+FRIDGEfit suggests recipes from food items in your fridge, filters the results by food allergies, gluten-free, and low calorie, and delivers several recipe options (video, blogs, photos, further information) depending on the ingredient you have available. Then, depending on the recipe you select, FRIDGEfit delivers your health and fitness options to burn off the calories you consumed.
 * Breaks down recipe by: protein, vegetable, fruit, dairy, spices
 * Filters recipes by dietary constraint, food allergies, gluten-free, low calorie, and time available
 * Suggests recipes and provides resources (video, blogs, photos, further information)
