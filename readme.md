@@ -8,8 +8,8 @@ FRIDGEfit suggests recipes from a list of ingredients you have, filters the resu
 * Breaks down recipe by: protein, vegetable, fruit, dairy, spices
 * Filters recipes by dietary constraint, food allergies, gluten-free, low calorie, and time available
 * Suggests recipes and provides resources (video, blogs, photos, further information)
-* Depending on the recipe you select, FRIDGE-FIT delivers your health and fitness options to burn off the calories you consumed
-* Have ALMOST all of the ingredients sitting around in your fridge to make something delish? Use our map to search for grocery stores near you - and find out how long it would take to walk there from your location!
+* Depending on the recipe you select, FRIDGEfit delivers your health and fitness options to burn off the calories you consumed
+* Have ALMOST all of the ingredients sitting around in your fridge to make something delish, but missing one or two? Use our map to search for grocery stores near you - and find out how long it would take to walk there from your location!
 
 **INSTRUCTIONS:**
 * Enter the ingredients from your fridge on the left and hit SEARCH
@@ -18,12 +18,12 @@ FRIDGEfit suggests recipes from a list of ingredients you have, filters the resu
 * Type in your ZIP code to search for grocery stores near you
   * Select any grocery store and then hit "Click to burn off this meal from your location" to see how long it would take to walk there 
 
-**Screenshots:**
+**SCREENSHOTS:**
 <img width="1167" alt="screen shot 2018-08-29 at 1 33 03 pm" src="https://user-images.githubusercontent.com/34491285/44807958-86cca900-ab90-11e8-99ae-f1c87b6b5174.png">
 <img width="886" alt="screen shot 2018-08-29 at 1 33 24 pm" src="https://user-images.githubusercontent.com/34491285/44807960-86cca900-ab90-11e8-812c-c6115f16064c.png">
 <img width="779" alt="screen shot 2018-08-29 at 1 35 36 pm" src="https://user-images.githubusercontent.com/34491285/44807961-87653f80-ab90-11e8-8c2c-fa9b674050bf.png">
 
-**Technologies Used:**
+**TECHNOLOGIES USED:**
 * Edamam API 
 * The Google Places API Web Service
 * Google Fonts
@@ -33,7 +33,7 @@ FRIDGEfit suggests recipes from a list of ingredients you have, filters the resu
 * CSS
 * Javascript
 
-**Team Members:**
+**TEAM MEMBERS:**
 * Ryan McGeeney
 * Mayra Gamiddo
 * Tyler Calvert
