@@ -34,8 +34,8 @@ FRIDGEfit suggests recipes from a list of ingredients you have, filters the resu
 * Javascript
 
 **Team Members:**
-Ryan McGeeney
-Mayra Gamiddo
-Tyler Calvert
-Leslie Rose
+* Ryan McGeeney
+* Mayra Gamiddo
+* Tyler Calvert
+* Leslie Rose
 
