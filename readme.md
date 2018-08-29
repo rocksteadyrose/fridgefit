@@ -1,26 +1,41 @@
-DEPLOYED PROJECT LINK: http://bit.ly/fridgefitrose
+# FRIDGEfit
 
+View the completed app <a href="http://bit.ly/fridgefitrose">here</a>.
+
+Wondering what to do with all of those ingredients just sitting around in your fridge? Meet FRIDGEfit!
+
+FRIDGEfit suggests recipes from a list of ingredients you have, filters the results by food allergies, gluten-free, and low calorie, and delivers several recipe options (video, blogs, photos, further information) depending on the ingredient you have available. Then, depending on the recipe you select, FRIDGEfit delivers your health and fitness options to burn off the calories you consumed.
+* Breaks down recipe by: protein, vegetable, fruit, dairy, spices
+* Filters recipes by dietary constraint, food allergies, gluten-free, low calorie, and time available
+* Suggests recipes and provides resources (video, blogs, photos, further information)
+* Depending on the recipe you select, FRIDGE-FIT delivers your health and fitness options to burn off the calories you consumed
+* Have ALMOST all of the ingredients sitting around in your fridge to make something delish? Use our map to search for grocery stores near you - and find out how long it would take to walk there from your location!
+
+**INSTRUCTIONS:**
+* Enter the ingredients from your fridge on the left and hit SEARCH
+* Select any recipe by clicking RECIPE
+* Find out how the Fridge suggests you burn off the meal by clicking ACTIVITY
+* Type in your ZIP code to search for grocery stores near you
+  * Select any grocery store and then hit "Click to burn off this meal from your location" to see how long it would take to walk there 
+
+**Screenshots:**
+<img width="1167" alt="screen shot 2018-08-29 at 1 33 03 pm" src="https://user-images.githubusercontent.com/34491285/44807958-86cca900-ab90-11e8-99ae-f1c87b6b5174.png">
+<img width="886" alt="screen shot 2018-08-29 at 1 33 24 pm" src="https://user-images.githubusercontent.com/34491285/44807960-86cca900-ab90-11e8-812c-c6115f16064c.png">
+<img width="779" alt="screen shot 2018-08-29 at 1 35 36 pm" src="https://user-images.githubusercontent.com/34491285/44807961-87653f80-ab90-11e8-8c2c-fa9b674050bf.png">
+
+**Technologies Used:**
+* Edamam API 
+* The Google Places API Web Service
+* Google Fonts
+* Materialize
+* Bootstrap
+* HTML
+* CSS
+* Javascript
+
+**Team Members:**
 Ryan McGeeney
-
 Mayra Gamiddo
-
 Tyler Calvert
-
 Leslie Rose
 
-
-TEAM NAME: TEAM NAME LOADING
-
-PROJECT TITLE: FRIDGE-FIT
-
-PROJECT DESCRIPTION:
-FRIDGE-FIT suggests recipes from a list of ingredients you have, filters the results by food allergies, gluten-free, and low calorie, and delivers several recipe options (video, blogs, photos, further information) depending on the ingredient you have available. Then, depending on the recipe you select, FRIDGE-FIT delivers your health and fitness options to burn off the calories you consumed.
-
-APIs: Edamam, The Google Places API Web Service, Maps JavaScript API
-Libraries: Materialize, Bootstrap, Google Places, Google Fonts
-
-ROUGH BREAKDOWN OF TASKS:
-Breaks down recipe by: protein, vegetable, fruit, dairy, spices
-Filters recipes by dietary constraint, food allergies, gluten-free, low calorie, and time available
-Suggests recipes and provides resources (video, blogs, photos, further information)
-Depending on the recipe you select, FRIDGE-FIT delivers your health and fitness options to burn off the calories you consumed
