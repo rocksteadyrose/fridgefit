@@ -1,4 +1,4 @@
-DEPLOYED PROJECT LINK: https://rocksteadyrose.github.io/1stproject/
+DEPLOYED PROJECT LINK: http://bit.ly/fridgefitrose
 
 Ryan McGeeney
 
