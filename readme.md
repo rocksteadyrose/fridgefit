@@ -21,7 +21,7 @@ FRIDGEfit suggests recipes from a list of ingredients you have, filters the resu
 **SCREENSHOTS:**
 <img width="1167" alt="screen shot 2018-08-29 at 1 33 03 pm" src="https://user-images.githubusercontent.com/34491285/44807958-86cca900-ab90-11e8-99ae-f1c87b6b5174.png">
 <img width="886" alt="screen shot 2018-08-29 at 1 33 24 pm" src="https://user-images.githubusercontent.com/34491285/44807960-86cca900-ab90-11e8-812c-c6115f16064c.png">
-<img width="779" alt="screen shot 2018-08-29 at 1 35 36 pm" src="https://user-images.githubusercontent.com/34491285/44807961-87653f80-ab90-11e8-8c2c-fa9b674050bf.png">
+<img width="859" alt="screen shot 2018-08-29 at 1 50 53 pm" src="https://user-images.githubusercontent.com/34491285/44808727-9d73ff80-ab92-11e8-8838-d85f28753552.png">
 
 **TECHNOLOGIES USED:**
 * Edamam API 
