@@ -101,20 +101,20 @@ $(document).on('click', '.ingredientListBtn', function() {
 		$("#map").hide();
 
 	$(".zipbutton").on( "click", function(event) {
+		event.preventDefault();
 		zipCode = $(".zipinput").val().trim();
 		$("#map").show();
 		groceryStoresArray = [];
 		centerArray = [];
 		positionArray = [];
 		groceryInfoObject = {name:[], address:[], url:[]};
-		event.preventDefault();
 		
 		$(".zipinput").keyup(function(event) {
 			if (event.keyCode == 13) {
 			  $(".zipbutton").click();
 			}
 		  });
-
+		  
 $.ajax({
 	url: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=grocery+stores+in+' + zipCode + '&radius=1&key=AIzaSyC10w2038KqjWrYLulCTPIC3RNqTMd9g74'
 }).then(function(response) {
@@ -165,16 +165,16 @@ $.ajax({
 			map: map
 	});
 
-	function locate(){
-		if ("geolocation" in navigator){
-			navigator.geolocation.getCurrentPosition(function(position){ 
-				var currentLatitude = position.coords.latitude;
-				var currentLongitude = position.coords.longitude;
-				var infoWindowHTML = "Latitude: " + currentLatitude + "<br>Longitude: " + currentLongitude;
-				var infoWindow = new google.maps.InfoWindow({map: map, content: infoWindowHTML});
-				var currentLocation = { lat: currentLatitude, lng: currentLongitude };
-				infoWindow.setPosition(currentLocation);
-			});}}
+	// function locate(){
+	// 	if ("geolocation" in navigator){
+	// 		navigator.geolocation.getCurrentPosition(function(position){ 
+	// 			var currentLatitude = position.coords.latitude;
+	// 			var currentLongitude = position.coords.longitude;
+	// 			var infoWindowHTML = "Latitude: " + currentLatitude + "<br>Longitude: " + currentLongitude;
+	// 			var infoWindow = new google.maps.InfoWindow({map: map, content: infoWindowHTML});
+	// 			var currentLocation = { lat: currentLatitude, lng: currentLongitude };
+	// 			infoWindow.setPosition(currentLocation);
+	// 		});}}
 
 
 	google.maps.event.addListener(marker, 'click', (function (marker, i) {
