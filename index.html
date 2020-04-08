@@ -5,17 +5,28 @@
 	<meta charset="utf-8">
 	<title>FRIDGEfit</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<<<<<<< HEAD
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
+=======
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+>>>>>>> c43746e0f8ad461e472b929be2fa932cf116ef48
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 </head>
 
 <body>
+<<<<<<< HEAD
 	<div class="topPicCont">
+=======
+	<div class="topPicCont">	
+>>>>>>> c43746e0f8ad461e472b929be2fa932cf116ef48
 		<img id="logo" class="topPic" alt="Salad!" src="images/longThin.jpg">
 	</div>
 	<nav class="navbar navbar-default">
@@ -34,6 +45,7 @@
 	<div class="container" id="mainContainer">
 		<div class="row" id="topRow">
 			<!-- <div class="col-md-12"> -->
+<<<<<<< HEAD
 			<div class="panel panel-default">
 
 				<div class="col-md-6">
@@ -69,6 +81,32 @@
 							</li>
 						</h4>
 					</ul>
+=======
+				<div class="panel panel-default">
+				<div class="col-md-6">	
+					<h3>How to use FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span></h3>
+					<ul>
+						<h4>
+							<li>
+							- Simply input UNEXPIRED ingredients you have in the fridge, or around the house into the search bar below
+							</li>
+							<li>
+							- Learn more about any particular recipe by clicking GO TO RECIPE
+							</li>
+							<li>
+							- Discover how to get FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> by clicking the ACTIVITY button next to any recipe
+							</li>
+							<li>
+							- Type in your ZIP code on our interactive FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> activity map to find additional ingredients at a store near you.
+							</li>
+						</h4>
+						</ul>
+				</div>
+				<div class="col-md-6">
+						<h3>About FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span></h3>
+					<h4>Suggests recipes from a list of ingredients in your fridge, filters the results by food allergies, gluten-free, and low calorie, and delivers recipe options depending on the ingredients you have available. When you select a recipe, FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> presents you with health and fitness options to burn off the calories you consumed. Plus, if you need to take a quick trip to the grocery store to pick up an extra ingredient—or if you just want to burn off some calories early—use our interactive FRIDGEfit<span class="tmSymbol"><sup>&#8482;</sup></span> activity map to find these ingredients in a grocery store near you.</h4>
+					</div>
+>>>>>>> c43746e0f8ad461e472b929be2fa932cf116ef48
 				</div>
 
 			</div>
@@ -79,7 +117,7 @@
 				<div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h4>Search for ingredients</h4>
+							<h3>Search for ingredients</h3>
 						</div>
 						<div class="panel-body">
 							<form>
@@ -93,6 +131,7 @@
 						</div>
 					</div>
 					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<<<<<<< HEAD
 						<div class="panel panel-default">
 							<div class="panel-heading" role="tab" id="headingOne">
 								<h4 class="panel-title">
@@ -107,6 +146,20 @@
 								<div class="panel-body" id="ingredients-list"></div>
 							</div>
 						</div>
+=======
+					  <div class="panel panel-default">
+					    <div class="panel-heading" role="tab" id="headingOne">
+					      <h4 class="panel-title">
+					        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					          Current ingredients (<span id="numIngredients">0</span>)
+					        </a>
+					      </h4>
+					    </div>
+					    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+					      <div class="panel-body" id="ingredients-list"></div>
+					    </div>
+					  </div>
+>>>>>>> c43746e0f8ad461e472b929be2fa932cf116ef48
 					</div>
 				</div>
 				<div>
@@ -118,11 +171,24 @@
 						<div class="row">
 							<div class="col-lg-12">
 								<br>
+<<<<<<< HEAD
 								<span>Enter your zip code to find this recipe and any extra ingredients in a grocery
 									store near you</span>
 								<div class="form-group">
 									<input type="number" class="form-control zipinput" placeholder="ZIP Code">
 									<button type="submit" class="btn btn-default zipbutton">Go!</button>
+=======
+								<div class="panel panel-default">
+									<div class="panel-heading">
+									<span id="enterZipSpan">Enter your ZIP code to find any extra ingredients in a grocery store near you</span>
+								</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<input type="number" class="form-control zipinput" placeholder="ZIP Code">
+										<button class="btn btn-default zipbutton" type="button">Go!</button>
+									</div>
+								</div>
+>>>>>>> c43746e0f8ad461e472b929be2fa932cf116ef48
 								</div>
 							</div>
 						</div>
@@ -131,8 +197,14 @@
 				</div>
 			</div>
 			<div class="col-md-9">
+<<<<<<< HEAD
 				<div id="recipeDisplay" class="panel panel-default col-md-12">
 				</div>
+=======
+				<div id="recipeDisplay" class="col-md-12">
+					<img class="recipeDisplayBckGround" src="images/MainPic.jpg">
+        		</div>
+>>>>>>> c43746e0f8ad461e472b929be2fa932cf116ef48
 			</div>
 		</div>
 		<div class="row">
@@ -150,6 +222,7 @@
 		<img class="bottomPic" alt="Salad!" src="images/longThin.jpg">
 	</div>
 
+<<<<<<< HEAD
 
 	<script src="javascript/app.js"></script>
 	<script
@@ -161,3 +234,84 @@
 </body>
 
 </html>
+=======
+	<div id="modal1" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">This recipe IS FRIDGEfit! Burn it off by walking to the kitchen and getting some ice cream.</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+	  	</div>
+  	<div id="modal2" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">Way to be healthy! Burn off those 'lil calories with some thumb exercises as you text your friends about how healthy you are!</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+  	</div>
+  	<div id="modal3" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">You know how to burn off all those calories? Clean your fridge inside and out! Besides, you never know what ingredients you may find for your next recipe!</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+  	</div>
+  	<div id="modal4" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">O M FRIDGEFit G! You are so healthy! Jump up and down to celebrate and then you'll have burned off those calories in no time!</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+  	</div>
+  	<div id="modal5" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">Now would be a really good time to take your dog on a walk to burn off those calories. Oh, don't have one? Yeah, just take yourself on a walk...</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+  	</div>
+  	<div id="modal6" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">LOL your fridge is slighttttly judging you right now... running about 5 miles should burn off all those calories.</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+  	</div>
+  	<div id="modal7" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">Okay, you should totally go on a run to the farthest grocery store to burn off all those calories...</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+  	</div>
+  	<div id="modal8" class="modal">
+	    <div class="modal-content modalStyle">
+	      <h1 class="modalHeader">Activity</h1>
+	      <h4 class="modalBody">Looking for a way to burn off those calories? We know there's a mountain by the name of Everest that could use some climbing...</h4>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class="modal-action modal-close btn btn-default">Exit</a>
+	    </div>
+  	</div>
+	
+
+	<script src="javascript/app.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUlmVnnBzy1bSOLC3-fbhrhty_xFQSBA0&libraries=places&callback=initMap" async defer></script>
+	</script>
+</body>
+</html>
+>>>>>>> c43746e0f8ad461e472b929be2fa932cf116ef48
